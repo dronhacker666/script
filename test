@@ -1,0 +1,9 @@
+a = 20;
+b = a / 5;
+
+if(a>5){
+	print(1);
+}else{
+	print(2);
+}
+print(b);
