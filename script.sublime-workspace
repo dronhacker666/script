@@ -4,8 +4,28 @@
 		"selected_items":
 		[
 			[
+				"L",
+				"Lexem"
+			],
+			[
+				"e",
+				"exec"
+			],
+			[
+				"C",
+				"Cmd"
+			],
+			[
+				"sta",
+				"stackPop1p"
+			],
+			[
+				"Op",
+				"OPERATOR_SUB"
+			],
+			[
 				"OP",
-				"OPERATOR_ADD"
+				"OPERATOR_MUL"
 			],
 			[
 				"re",
@@ -304,10 +324,6 @@
 				"ticket"
 			],
 			[
-				"sta",
-				"status"
-			],
-			[
 				"o",
 				"offer"
 			],
@@ -498,22 +514,6 @@
 			[
 				"wi",
 				"widget"
-			],
-			[
-				"ite",
-				"items"
-			],
-			[
-				"key",
-				"keydown"
-			],
-			[
-				"sho",
-				"showBox"
-			],
-			[
-				"ch",
-				"changeTo"
 			]
 		]
 	},
@@ -523,7 +523,7 @@
 			"file": "main.c",
 			"settings":
 			{
-				"buffer_size": 1257,
+				"buffer_size": 1258,
 				"line_ending": "Windows"
 			}
 		},
@@ -531,16 +531,15 @@
 			"file": "test",
 			"settings":
 			{
-				"buffer_size": 70,
-				"line_ending": "Windows",
-				"name": "test"
+				"buffer_size": 98,
+				"line_ending": "Windows"
 			}
 		},
 		{
 			"file": "src/Lexer.c",
 			"settings":
 			{
-				"buffer_size": 4670,
+				"buffer_size": 5772,
 				"line_ending": "Windows"
 			}
 		},
@@ -548,7 +547,7 @@
 			"file": "src/vm.c",
 			"settings":
 			{
-				"buffer_size": 5022,
+				"buffer_size": 7813,
 				"line_ending": "Windows",
 				"name": "vm.c"
 			}
@@ -557,7 +556,7 @@
 			"file": "src/Parser.c",
 			"settings":
 			{
-				"buffer_size": 3293,
+				"buffer_size": 3638,
 				"line_ending": "Windows",
 				"name": "Parser.c"
 			}
@@ -583,7 +582,7 @@
 			"file": "src/Stack.c",
 			"settings":
 			{
-				"buffer_size": 1064,
+				"buffer_size": 1125,
 				"line_ending": "Windows",
 				"name": "Stack.c"
 			}
@@ -604,6 +603,46 @@
 		"selected_items":
 		[
 			[
+				"git pull",
+				"Git: Pull"
+			],
+			[
+				"git ",
+				"Git: Commit"
+			],
+			[
+				"git c",
+				"Git: Checkout"
+			],
+			[
+				"git log",
+				"Git: Log"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git: sta",
+				"Git: Status"
+			],
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: re",
+				"Package Control: Remove Package"
+			],
+			[
 				"<",
 				"Snippet: #include <…>"
 			],
@@ -622,14 +661,6 @@
 			[
 				"ssp",
 				"Set Syntax: PHP"
-			],
-			[
-				"Package Control: in",
-				"Package Control: Install Package"
-			],
-			[
-				"Package Control: re",
-				"Package Control: Remove Package"
 			]
 		],
 		"width": 400.0
@@ -653,18 +684,28 @@
 	},
 	"file_history":
 	[
-		"/D/GOOGLE/script/code",
-		"/D/www/temp/sccript/index.html",
+		"/D/github/script/test",
+		"/D/github/script/code",
+		"/D/GOOGLE/script/src/Array.c",
 		"/D/GOOGLE/script/src/Lexer.c",
+		"/D/GOOGLE/script/src/Parser.c",
+		"/D/GOOGLE/script/src/vm.c",
+		"/D/GOOGLE/script/src/Stack.c",
 		"/D/GOOGLE/script/test",
+		"/D/GOOGLE/script/script.sublime-project",
+		"/D/GOOGLE/script/makefile",
+		"/D/GOOGLE/script/main.c",
+		"/D/GOOGLE/script/code",
+		"/C/Users/andrey/AppData/Roaming/Sublime Text 3/Packages/User/SublimeGit.sublime-settings",
+		"/C/Users/andrey/AppData/Roaming/Sublime Text 3/Packages/SublimeGit/SublimeGit.sublime-settings",
+		"/C/Users/andrey/AppData/Roaming/Sublime Text 3/Packages/SublimeGit/Default.sublime-keymap",
+		"/D/www/temp/sccript/index.html",
 		"/D/GOOGLE/script/src/Hash.c",
 		"/D/GOOGLE/script/main.cpp",
 		"/D/GOOGLE/script/src/log.cpp",
 		"/D/GOOGLE/script/src/vm.cpp",
 		"/D/GOOGLE/script/src/script.h",
 		"/D/GOOGLE/script/example",
-		"/D/GOOGLE/script/makefile",
-		"/D/GOOGLE/script/src/vm.c",
 		"/D/GOOGLE/script/src/base.c",
 		"/D/www/releases/0.9.6/admin/protected/config/main_sim.php",
 		"/C/Users/andrey/Documents/qweqwe",
@@ -770,17 +811,7 @@
 		"/D/www/releases/0.9.6/admin/protected/controllers/manager_finance_operations/ViewAction.php",
 		"/D/www/releases/0.9.6/frontend/js/Vendors/animate.js",
 		"/D/www/releases/0.9.6/frontend/js/Angular/Invoices/invoice-details.js",
-		"/D/www/releases/0.9.6/frontend/js/Vendors/angular-sanitize.js",
-		"/D/www/releases/0.9.6/frontend/js/Vendors/Rx/rx.dom.min.js",
-		"/D/www/releases/0.9.6/frontend/js/Vendors/RequireJs/require.js",
-		"/D/www/releases/0.9.6/frontend/js/Vendors/RequireJs/normalize.js",
-		"/D/www/releases/0.9.6/frontend/js/Vendors/RequireJs/css.js",
-		"/D/www/releases/0.9.6/frontend/js/animation.js",
-		"/D/www/releases/0.9.6/frontend/js/es5-shim.min.js",
-		"/D/www/releases/0.9.6/frontend/protected/views/invoices/index.php",
-		"/D/www/releases/0.9.6/frontend/js/Angular/Common/filters.js",
-		"/D/www/releases/0.9.6/frontend/js/Angular/Common/Modules/dropdown.js",
-		"/D/www/releases/0.9.6/frontend/protected/views/invoices/viewDetails.php"
+		"/D/www/releases/0.9.6/frontend/js/Vendors/angular-sanitize.js"
 	],
 	"find":
 	{
@@ -791,6 +822,8 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"D:\\github\\script\\src",
+			"D:\\GOOGLE\\script\\src",
 			"D:\\www\\releases\\0.9.6\\admin\\protected",
 			"D:\\www\\releases\\0.9.6\\frontend\\js",
 			"D:\\www\\releases\\0.9.6\\frontend\\js\\Angular",
@@ -821,6 +854,9 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"VAR",
+			"f",
+			"CONST",
 			"pushCmd1i",
 			"pushCmd1s",
 			"i_value",
@@ -945,10 +981,7 @@
 			":",
 			"_offer_systems",
 			"updateOveflow",
-			"updateLine",
-			"123e",
-			"soma",
-			"some"
+			"updateLine"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -956,6 +989,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"CONST_NUMBER",
 			"pushCmd1f",
 			"pushCmdAlias",
 			"stackPop1f",
@@ -977,13 +1011,13 @@
 		"reverse": false,
 		"show_context": true,
 		"use_buffer2": true,
-		"whole_word": false,
+		"whole_word": true,
 		"wrap": true
 	},
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -992,15 +1026,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1257,
+						"buffer_size": 1258,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1197,
-								1197
+								1198,
+								1198
 							]
 						],
 						"settings":
@@ -1009,10 +1043,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 294.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -1021,27 +1055,26 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 70,
+						"buffer_size": 98,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								25,
-								25
+								98,
+								98
 							]
 						],
 						"settings":
 						{
-							"auto_name": "test",
 							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
@@ -1050,15 +1083,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4670,
+						"buffer_size": 5772,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2291,
-								2291
+								4030,
+								4030
 							]
 						],
 						"settings":
@@ -1067,10 +1100,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1218.0,
+						"translation.y": 2893.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
@@ -1079,15 +1112,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 5022,
+						"buffer_size": 7813,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								4214,
-								4214
+								3728,
+								3728
 							]
 						],
 						"settings":
@@ -1097,10 +1130,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2268.0,
+						"translation.y": 4225.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
@@ -1109,15 +1142,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3293,
+						"buffer_size": 3638,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1851,
-								1851
+								755,
+								755
 							]
 						],
 						"settings":
@@ -1127,7 +1160,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1134.0,
+						"translation.y": 420.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -1156,7 +1189,7 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 3822.0,
+						"translation.y": 98.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
@@ -1189,7 +1222,7 @@
 						"translation.y": 54.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 7,
+					"stack_index": 6,
 					"type": "text"
 				},
 				{
@@ -1198,15 +1231,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1064,
+						"buffer_size": 1125,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								629,
-								639
+								369,
+								381
 							]
 						],
 						"settings":
@@ -1216,10 +1249,10 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 126.0,
+						"translation.y": 14.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
+					"stack_index": 7,
 					"type": "text"
 				},
 				{
@@ -1286,11 +1319,19 @@
 	"menu_visible": true,
 	"output.exec":
 	{
-		"height": 296.0
+		"height": 266.0
 	},
 	"output.find_results":
 	{
 		"height": 0.0
+	},
+	"output.git-pull":
+	{
+		"height": 129.0
+	},
+	"output.git-push":
+	{
+		"height": 331.0
 	},
 	"project": "script.sublime-project",
 	"replace":
@@ -1313,6 +1354,10 @@
 		[
 			[
 				"",
+				"C:\\Users\\andrey\\Documents\\cpa.sublime-project"
+			],
+			[
+				"ca",
 				"C:\\Users\\andrey\\Documents\\cpa.sublime-project"
 			],
 			[

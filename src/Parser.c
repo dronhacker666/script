@@ -45,6 +45,7 @@ int parse(Array out, char* source){
 	char *pChar, *cur;
 
 	float f_value;
+	char c_value;
 	char trigger;
 
 	ParserState state = PS_wait;
@@ -73,6 +74,10 @@ int parse(Array out, char* source){
 			else if(is_separator(*ch))
 			{
 				state = PS_read_separator;
+			}else if(*ch=='"' || *ch=='\''){
+				c_value = *ch;
+				state = PS_read_string;
+				ch++;
 			}
 			cur = ch;
 			trigger = 0;
@@ -81,6 +86,18 @@ int parse(Array out, char* source){
 
 		// process state
 		switch(state){
+			case PS_read_string:
+				if(*ch==c_value){
+
+					pChar = malloc(sizeof(char)*(ch-cur));
+					memcpy(pChar, cur, ch-cur);
+					pChar[ch-cur] = 0;
+
+					pushLexem1s(out, CONST_STRING, pChar);
+
+					state=PS_wait;
+				}
+			break;
 			case PS_read_key:
 
 				if(cur==ch){ // on start lexem
@@ -138,7 +155,7 @@ int parse(Array out, char* source){
 						}
 						cur++;
 					}
-					pushLexem1f(out, CONST, f_value);
+					pushLexem1f(out, CONST_NUMBER, f_value);
 
 					state=PS_wait;
 					continue;

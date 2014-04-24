@@ -7,7 +7,8 @@
 typedef struct{
 	enum{
 		VAR,
-		CONST,
+		CONST_NUMBER,
+		CONST_STRING,
 		SEPARATOR,
 
 		OPERATOR_CP,
@@ -33,7 +34,8 @@ typedef struct{
 char* getLexName(int type){
 	switch(type){
 		case VAR: return "VAR"; break;
-		case CONST: return "CONST"; break;
+		case CONST_NUMBER: return "CONST_NUMBER"; break;
+		case CONST_STRING: return "CONST_STRING"; break;
 		case SEPARATOR: return "SEPARATOR"; break;
 
 		case OPERATOR_CP: return "OPERATOR_CP"; break;
@@ -86,12 +88,15 @@ void pushLexem1c(Array array, int type, char value){
 
 int Lexems2Code(Array out, Array lexems){
 	int i;
-	int gt = -1;
 	Stack _if = newStack(10);
 	Lexem* lex; 
 	Lexem* next_lex;
+	Lexem* next_lex2;
 	Lexem* r=0;
-	Lexem* f=0;
+
+	Stack store_commands = newStack(256);
+	Stack store_functions = newStack(256);
+	Stack store_goto = newStack(256);
 
 	for(i=0; i<lexems->length; i++){
 		lex = ArrayGet(lexems, i);
@@ -105,13 +110,16 @@ int Lexems2Code(Array out, Array lexems){
 					case OPERATOR_SUB:
 					case OPERATOR_MUL:
 					case OPERATOR_DIV:
-					case OPERATOR_CP:
+					//case OPERATOR_CP:
+					case CONST_NUMBER:
 					case OPERATOR_GT:
 					case OPERATOR_LT:
 						pushCmdAlias(out, VPUSH, lex->s_value);
 						break;
-					case SEPARATOR:
+					case OPERATOR_CP:
 						// for skip
+					break;
+					case SEPARATOR:
 						if(next_lex->c_value!='('){
 							pushCmdAlias(out, VPUSH, lex->s_value);
 						}
@@ -129,44 +137,60 @@ int Lexems2Code(Array out, Array lexems){
 					break;
 					case SEPARATOR:
 						if(next_lex->c_value=='('){
-							f = lex;
+							stackPush1p(store_functions, lex);
 							i++;
 						}
 					break;
 				}
 				
 			break;
-			case CONST:
+			case CONST_NUMBER:
 				pushCmd1f(out, PUSH, lex->f_value);
 			break;
+			case CONST_STRING:
+				pushCmd1s(out, PUSH_S, lex->s_value);
+			break;
+			case OPERATOR_SUB:
 			case OPERATOR_ADD:
 				next_lex = ArrayGet(lexems,i+1);
-				if(next_lex->type==CONST){
-					pushCmd1f(out, SADD, next_lex->f_value);
-					i++;
+				next_lex2 = ArrayGet(lexems,i+2);
+
+				if(
+					next_lex2->type==OPERATOR_MUL ||
+					next_lex2->type==OPERATOR_DIV
+				){
+					stackPush1i(store_commands, lex->type==OPERATOR_ADD?SADDS:SSUBS);
+				}else{
+					if(next_lex->type==CONST_NUMBER){
+						pushCmd1f(out, lex->type==OPERATOR_ADD?SADD:SSUB, next_lex->f_value);
+						i++;
+					}
 				}
 			break;
 			case OPERATOR_MUL:
-				next_lex = ArrayGet(lexems,i+1);
-				if(next_lex->type==CONST){
-					pushCmd1f(out, SMUL, next_lex->f_value);
-					i++;
-				}
-			break;
 			case OPERATOR_DIV:
 				next_lex = ArrayGet(lexems,i+1);
-				if(next_lex->type==CONST){
-					pushCmd1f(out, SDIV, next_lex->f_value);
+				if(next_lex->type==CONST_NUMBER){
+					pushCmd1f(out, lex->type==OPERATOR_DIV?SDIV:SMUL, next_lex->f_value);
 					i++;
 				}
+				if(next_lex->type==VAR){
+					pushCmdAlias(out, VPUSH, next_lex->s_value);
+					pushCmd(out, next_lex->type==OPERATOR_DIV?SDIVS:SMULS);
+					i++;
+				}
+
+				while(!stackIsEmpty(store_commands)){
+					pushCmd(out, stackPop1i(store_commands));
+				}
+
 			break;
 			case SEPARATOR:
 
 				switch(lex->c_value){
 					case ')':
-						if(f){
-							pushCmdAlias(out, CALL, f->s_value);
-							f = 0;
+						if(!stackIsEmpty(store_functions)){
+							pushCmdAlias(out, CALL, ((Lexem*)stackPop1p(store_functions))->s_value);
 						}
 					break;
 					case ';':
@@ -186,9 +210,8 @@ int Lexems2Code(Array out, Array lexems){
 							if(next_lex->type==C_ELSE){
 
 							}else{
-								if(gt>-1){
-									pushCmd1f(out, GOTO, gt);
-									gt=-1;
+								if(!stackIsEmpty(store_goto)){
+									pushCmd1f(out, GOTO, stackPop1i(store_goto));
 								}
 
 								pushCmd(out, CMP_FALSE);
@@ -212,23 +235,28 @@ int Lexems2Code(Array out, Array lexems){
 				stackPush1i(_if, C_ELSE);
 			break;
 
+			case C_WHILE:
+				stackPush1i(store_goto, out->length);
+				stackPush1i(_if, C_IF);
+			break;
+
 			case OPERATOR_EQ:
 				next_lex = ArrayGet(lexems,i+1);
-				if(next_lex->type==CONST){
+				if(next_lex->type==CONST_NUMBER){
 					pushCmd1f(out, EQ, next_lex->f_value);
 					i++;
 				}
 			break;
 			case OPERATOR_GT:
 				next_lex = ArrayGet(lexems,i+1);
-				if(next_lex->type==CONST){
+				if(next_lex->type==CONST_NUMBER){
 					pushCmd1f(out, GT, next_lex->f_value);
 					i++;
 				}
 			break;
 			case OPERATOR_LT:
 				next_lex = ArrayGet(lexems,i+1);
-				if(next_lex->type==CONST){
+				if(next_lex->type==CONST_NUMBER){
 					pushCmd1f(out, LT, next_lex->f_value);
 					i++;
 				}

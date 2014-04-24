@@ -36,7 +36,7 @@ int loadCode(Array array, char* filename){
 
 int execFile(char* filename){
 	FILE *fp;
-	if((fp=fopen(filename, "r+"))==NULL) {
+	if((fp=fopen(filename, "rb+"))==NULL) {
 		printf("File open error\n");
 		return 1;
 	}

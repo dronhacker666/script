@@ -24,6 +24,10 @@ Stack newStack(int size){
 	return stack;
 }
 
+int stackIsEmpty(Stack stack){
+	return stack->_head == 0;
+}
+
 void stackPush1i(Stack stack, int value){
 	stack->_data[++stack->_head].i = value;
 }
