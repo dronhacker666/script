@@ -8,11 +8,12 @@ package {
 	import flash.utils.describeType;
 	import flash.system.Security;
 
-	public class Bridge extends Sprite 
+	public class Bridge extends MovieClip 
 	{
 		public function Bridge()
 		{
-			Security.allowDomain("*"); 
+			Security.allowDomain("*");
+			stage.scaleMode = StageScaleMode.NO_BORDER;
 
 			var url:String = loaderInfo.parameters.src;
 			var onReady_callback:String = loaderInfo.parameters.onReady;
@@ -42,7 +43,7 @@ package {
 				});
 
 				log(vpaid.handshakeVersion("2.0"));
-				vpaid.initAd(800, 600, "normal", 500, "", "");
+				vpaid.initAd(stage.stageWidth, stage.stageHeight, "normal", 500, "", "");
 			})
 
 			loader.contentLoaderInfo.addEventListener(IOErrorEvent.IO_ERROR, function(event:IOErrorEvent):void{
